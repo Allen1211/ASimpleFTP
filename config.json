@@ -1,0 +1,20 @@
+{
+  "serverHost": "127.0.0.1",
+  "serverPort": 21,
+  "userBaseDir": "C:/Users/",
+  "users":[
+    {
+      "username": "user1",
+      "password": "123"
+    },
+    {
+      "username": "user2",
+      "password": "123"
+    },
+    {
+      "username": "allen",
+      "password": "allen"
+    }
+  ]
+
+}

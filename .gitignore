@@ -18,6 +18,16 @@
 *.zip
 *.tar.gz
 *.rar
+target
+ASimpleFTP-Server/target
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# IDEA files
+*.iml
+.idea
+
+# test src codes
+/ASimpleFTP-Server/src/test/
+/ASimpleFTP-Client/src/test/
