@@ -1,5 +1,8 @@
 package com.allen.ftpserver.command;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 /**
  * @ClassName Command
  * @Description The abstract base class of all ftp command
@@ -42,4 +45,22 @@ public abstract class AbstractCommand implements Command {
     public String getHelpMsg() {
         return helpMsg;
     }
+
+    protected String getArgWithSpace(String[] args) {
+        if (args == null) {
+            throw new NullPointerException("argument array should not be null");
+        } else if (args.length == 1) {
+            return args[0];
+        } else {
+            StringBuilder sb = new StringBuilder();
+            for (String arg : args) {
+                sb.append(arg).append(" ");
+            }
+            if (sb.length() > 0) {
+                sb.deleteCharAt(sb.length() - 1);
+            }
+            return sb.toString();
+        }
+    }
+
 }

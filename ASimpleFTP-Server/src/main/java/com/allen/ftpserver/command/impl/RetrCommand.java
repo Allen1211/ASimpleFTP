@@ -28,7 +28,7 @@ public class RetrCommand extends AbstractCommand {
         if(CollectionUtil.isEmpty(args)){
             connection.sendReply(Reply.PARAMETER_WRONG, "Missing parameter: <path>");
         }
-        String path = args[0];
+        String path = getArgWithSpace(args);
         FileSystem fileSystem = connection.getFileSystem();
         try {
             File file = fileSystem.findExistFileByPath(path);

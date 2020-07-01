@@ -29,7 +29,7 @@ public class DeleCommand extends AbstractCommand {
             connection.sendReply(Reply.PARAMETER_WRONG, "Missing parameter: <path>");
             return;
         }
-        String path = args[0];
+        String path = getArgWithSpace(args);
         FileSystem fileSystem = connection.getFileSystem();
         try {
             File file = fileSystem.findExistFileByPath(path);

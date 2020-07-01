@@ -39,7 +39,7 @@ public class DirCommand extends AbstractCommand {
         FileSystem fileSystem = connection.getFileSystem();
         File[] files;
         try {
-            files = fileSystem.listDirectory(CollectionUtil.isEmpty(args) ? null : args[0]);
+            files = fileSystem.listDirectory(CollectionUtil.isEmpty(args) ? null : getArgWithSpace(args));
         } catch (FileNotFoundException e) {
             connection.sendReply(Reply.ACTION_NOT_TAKEN, "File not found!");
             return;

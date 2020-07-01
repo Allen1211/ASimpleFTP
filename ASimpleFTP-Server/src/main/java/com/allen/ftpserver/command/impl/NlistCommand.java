@@ -34,7 +34,7 @@ public class NlistCommand extends AbstractCommand {
         File[] files;
         FileSystem fileSystem = connection.getFileSystem();
         try {
-            files = fileSystem.listDirectory(CollectionUtil.isEmpty(args)?null:args[0]);
+            files = fileSystem.listDirectory(CollectionUtil.isEmpty(args)?null:getArgWithSpace(args));
         }catch(FileNotFoundException e){
             connection.sendReply(Reply.ACTION_NOT_TAKEN, "File not found!");
             return;

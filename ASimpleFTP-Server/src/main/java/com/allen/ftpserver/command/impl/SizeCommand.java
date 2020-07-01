@@ -29,7 +29,7 @@ public class SizeCommand extends AbstractCommand {
         }
         FileSystem fileSystem = connection.getFileSystem();
         try {
-            File file = fileSystem.findExistFileByPath(args[0]);
+            File file = fileSystem.findExistFileByPath(getArgWithSpace(args));
             connection.sendReply(Reply.DATA_CONNECTION_OPEN);
             connection.sendData(String.valueOf(file.length()));
         }catch(FileNotFoundException e){

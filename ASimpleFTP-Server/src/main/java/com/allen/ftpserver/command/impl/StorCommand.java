@@ -39,7 +39,7 @@ public class StorCommand extends AbstractCommand {
         if(CollectionUtil.isEmpty(args)){
             connection.sendReply(Reply.PARAMETER_WRONG, "Missing parameter: <path>");
         }
-        String path = args[0];
+        String path = getArgWithSpace(args);
         FileSystem fileSystem = connection.getFileSystem();
         File file = fileSystem.findFileByPath(path);
         if(file.exists()){
