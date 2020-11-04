@@ -1,7 +1,7 @@
 {
   "serverHost": "127.0.0.1",
   "serverPort": 21,
-  "userBaseDir": "C:/Users/",
+  "userBaseDir": "D:/FTPUsers",
   "users":[
     {
       "username": "user1",

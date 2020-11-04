@@ -135,7 +135,7 @@ public class DataConnection implements Closeable {
             out.flush();
             return true;
         } catch (IOException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
             ftpConnection.sendReply(Reply.CONNECTION_CLOSED);
             return false;
         } finally {
@@ -160,9 +160,6 @@ public class DataConnection implements Closeable {
                 socket = passiveDataServerSocket.accept();
             } else {
                 socket = new Socket(clientDataHost, clientDataPort);
-//                socket = new Socket();
-//                socket.bind(new InetSocketAddress(20));
-//                socket.connect(new InetSocketAddress(clientDataHost,clientDataPort));
             }
 
             activeModeDataSockets.add(socket);
@@ -170,7 +167,7 @@ public class DataConnection implements Closeable {
             ftpConnection.sendReply(Reply.DATA_CONNECTION_OPEN);
             return socket;
         } catch (IOException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
             ftpConnection.sendReply(Reply.CANNOT_OPEN_DATA_CONNECTION);
             ResourceUtil.close(socket);
         }

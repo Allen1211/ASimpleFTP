@@ -51,7 +51,7 @@ public class FormatUtil {
             return "\r\n";
         }
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder("\r\n");
         for (File file : files) {
             String lastModified = sdf.format(new Date(file.lastModified()));
             String type = file.isDirectory() ? "<DIR>" : "";
@@ -60,13 +60,12 @@ public class FormatUtil {
             String line = String.format("%s\t%s\t%s\t\t%s\r\n", lastModified,type, size,fileName);
             sb.append(line);
         }
-        sb.append("\r\n");
         return sb.toString();
     }
 
     private static String getLinuxStyleDirFormat(FileSystem fileSystem, File[] files) {
         SimpleDateFormat sdf = new SimpleDateFormat("MMM dd yyyy", Locale.ENGLISH);
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder("\r\n");
         for (File file : files) {
             String permissions = fileSystem.getFilePermissionRwxFormString(file);
             String lastModified = sdf.format(new Date(file.lastModified()));

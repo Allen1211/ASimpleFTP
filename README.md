@@ -17,7 +17,7 @@ Simple ftp server and client implement by java for the purpose of learning.
 
 ### 已实现的功能
 
-![FTP服务器功能及指令](README.assets/FTP服务器功能及指令.bmp)
+![](https://allen-images-bucket.oss-cn-shenzhen.aliyuncs.com/img/FTP服务器功能及指令.bmp)
 
 ### 已实现的命令
 

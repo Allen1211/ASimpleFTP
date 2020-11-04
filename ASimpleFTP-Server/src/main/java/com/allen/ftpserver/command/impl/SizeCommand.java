@@ -30,7 +30,7 @@ public class SizeCommand extends AbstractCommand {
         FileSystem fileSystem = connection.getFileSystem();
         try {
             File file = fileSystem.findExistFileByPath(getArgWithSpace(args));
-            connection.sendReply(Reply.DATA_CONNECTION_OPEN);
+//            connection.sendReply(Reply.DATA_CONNECTION_OPEN);
             connection.sendData(String.valueOf(file.length()));
         }catch(FileNotFoundException e){
             connection.sendReply(Reply.ACTION_NOT_TAKEN, "no such file or directory: "+args[0]);

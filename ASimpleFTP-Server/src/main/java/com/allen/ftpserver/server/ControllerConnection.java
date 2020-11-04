@@ -8,6 +8,8 @@ import com.allen.ftpserver.utils.ResourceUtil;
 import java.io.*;
 import java.net.Socket;
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @ClassName ControllerConnection
@@ -104,7 +106,7 @@ public class ControllerConnection implements Closeable, Runnable {
         String cmd = parts[0];
         String[] args = parts.length > 1 ? Arrays.copyOfRange(parts, 1, parts.length) : null;
 
-        Command command = CommandFactory.getInstance(cmd);
+        Command command = CommandFactory.getInstance(filterInvalidWord(cmd));
         if (command == null) {
             this.sendReply(Reply.UNKNOWN_COMMAND);
             return;
@@ -115,6 +117,14 @@ public class ControllerConnection implements Closeable, Runnable {
 
     private boolean isConnectionAlive() {
         return controllerSocket != null && !controllerSocket.isClosed();
+    }
+
+    private String filterInvalidWord(String cmd){
+        Pattern pattern = Pattern.compile("([a-zA-Z]+)");
+        Matcher matcher = pattern.matcher(cmd);
+        matcher.find();
+        String result = matcher.group(1);
+        return result == null ? "": result;
     }
 
     @Override
